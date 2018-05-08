@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 int gc;
-int main() {
+
+int
+main() {
   int n;
   size_t len;
   char buf[100];  
