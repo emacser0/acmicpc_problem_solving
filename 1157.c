@@ -2,7 +2,9 @@
 #include <string.h>
 int c[26];
 int m,mc;
-int main()
+
+int
+main()
 {
     char buf[1000001];
     int len;

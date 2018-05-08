@@ -1,7 +1,8 @@
 #include <stdio.h>
 int c,i,t,f;
 
-int main() {
+int
+main() {
   for(;(c=getchar())!=-1&&c!=10;) {
     if((c==32)&&t==0&&f) {
       t=1;

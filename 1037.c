@@ -1,8 +1,9 @@
 #include <stdio.h>
-
 int n,nb;
-long min,max;
-int main() {
+long int min,max;
+
+int
+main() {
     scanf("%d",&n);
     scanf("%d",&nb);
     min=nb;

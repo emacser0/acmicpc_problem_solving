@@ -1,6 +1,8 @@
 #include <stdio.h>
 int n,cur=999,t1,t2,i;
-int main() {  
+
+int
+main() {  
   scanf("%d",&n);
   for(;n!=cur;i++) {
       if(i==0)cur=n;
