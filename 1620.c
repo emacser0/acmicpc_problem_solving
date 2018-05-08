@@ -1,13 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 typedef struct p{
     int no;
     char s[25];
 }p;
+
 p pbs[100001];
 p pbno[100001];
 int stack[10000][2],ei=-1;
+
+void swap(p*,p*);
+void quicksort(int,int);
+void binsearch(int,int,char[25]);
+
+int main() {
+    int n,m,nbuf;
+    char buf[25];
+    scanf("%d%d",&n,&m);
+    for(int i=0;i<n;i++) {
+	scanf("%s",buf);
+	strcpy(pbs[i].s,buf);
+	strcpy(pbno[i].s,buf);
+	pbs[i].no=i;
+	pbno[i].no=i;
+    }
+    quicksort(0, n-1);
+    for(int i=0;i<m;i++) {
+    	scanf("%s",buf);
+    	if(buf[0]>='0'&&buf[0]<='9') {
+    	    nbuf=atoi(buf);
+	    printf("%s\n",pbno[nbuf-1].s);
+    	}
+    	else binsearch(0,n-1,buf);
+    }
+}
+
 void swap(p *a,p *b) {
     p t;
     strcpy(t.s,a->s);
@@ -18,7 +47,7 @@ void swap(p *a,p *b) {
     b->no=t.no;
 }
 void
-__qsort(int start, int end) {
+quicksort(int start, int end) {
     int s,e,i,j,p;
     stack[++ei][0]=start,stack[ei][1]=end;
     for(;ei>-1;)  {
@@ -51,31 +80,5 @@ binsearch(int s, int e, char str[25]) {
 	} 
 	else if(r<0) i=m+1;
 	else j=m-1;
-    }
-    /* if(r==0) printf("%d\n",pbs[m].no+1); */
-    /* else if(r<0) binsearch(m+1
-,e,str); */
-    /* else binsearch(s,m-1,str); */
+    }    
 }
-int main() {
-    int n,m,nbuf;
-    char buf[25];
-    scanf("%d%d",&n,&m);
-    for(int i=0;i<n;i++) {
-	scanf("%s",buf);
-	strcpy(pbs[i].s,buf);
-	strcpy(pbno[i].s,buf);
-	pbs[i].no=i;
-	pbno[i].no=i;
-    }
-    __qsort(0, n-1);
-    for(int i=0;i<m;i++) {
-    	scanf("%s",buf);
-    	if(buf[0]>='0'&&buf[0]<='9') {
-    	    nbuf=atoi(buf);
-	    printf("%s\n",pbno[nbuf-1].s);
-    	}
-    	else binsearch(0,n-1,buf);
-    }
-}
-
