@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-int main() {
-    int t,r,l;
-    char buf[30];
+int t,r,l;
+char buf[30];
+
+int
+main() {    
     scanf("%d",&t);
     for(int i=0;i<t;i++) {
         scanf("%d",&r);
@@ -13,6 +15,6 @@ int main() {
                 putchar(buf[j]);
             }
         }
-	putchar('\n');
+	printf("\n");
     }
 }
