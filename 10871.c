@@ -1,8 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 int n,x,t;
-char buf[99999],buf2[99];
 
 int
 main() {  
