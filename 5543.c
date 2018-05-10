@@ -1,7 +1,8 @@
 #include <stdio.h>
-int ns[5];
-int hm,dm;
-int main() {
+int ns[5],hm,dm;
+
+int
+main() {
     for(int i=0;i<5;i++) {
         scanf("%d",&ns[i]);
     }

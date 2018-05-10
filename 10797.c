@@ -1,6 +1,8 @@
 #include <stdio.h>
 int n,b,c;
-int main() {
+
+int
+main() {
     scanf("%d",&n);
     for(int i=0;i<5;i++) {
         scanf("%d",&b);

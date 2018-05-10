@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 int a,b,l;
-char bufa[100];
-char bufb[100];
-char tbuf[100];
+char bufa[100],bufb[100],tbuf[100];
+
 int
 main() {
     scanf("%s %s",bufa,bufb);
