@@ -2,7 +2,7 @@
 int t,s,n,p,q;
 
 int
-main() {  
+main() {
   scanf("%d",&t);
   for(int i=0;i<t;i++) {
     scanf("%d %d",&s,&n);

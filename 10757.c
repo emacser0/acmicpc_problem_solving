@@ -4,10 +4,10 @@ int b,s,bl,sl,i;
 
 int
 main(){
-  char bf[2][19999]={{'0',},{'0',}};
+  char bf[2][10002]={{'0',},{'0',}};
   scanf("%s %s",&bf[0][1],&bf[1][1]);
   b=strlen(&bf[0][1])>strlen(&bf[1][1])?0:1;
-  s=b==0?1:0;
+  s=!b;
   bl=strlen(bf[b]);
   sl=strlen(bf[s]);
   for(i=sl-1;i>=1;i--) {

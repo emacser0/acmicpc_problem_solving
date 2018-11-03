@@ -1,32 +1,32 @@
 	extern printf
 	extern scanf
 	        section .data
-	scanf_argv:      db "%d %d",0
-	printf_argv:      db "%d",10,0
+	scanf_format:      db "%d %d",0
+	printf_format:      db "%d",10,0
 	        section .bss
 	n1:     resd 1
 	n2:     resd 1
 	        section .text
 	        global main
-	main:
-	        push ebx
-	        push ecx
+main:
+        push ebp
+        mov ebp,esp
 
-	        push n2
-	        push n1
-	        push scanf_argv
-	        call scanf
-	        add esp,12
+	push n2
+	push n1
+	push scanf_format
+	call scanf
+	add esp,12
 
-	        mov eax,dword[n1]
-	        sub eax,dword[n2]
+	mov eax,dword[n1]
+	sub eax,dword[n2]
 
-	        push eax
-	        push printf_argv
-	        call printf
-	        add esp,8
+	push eax
+	push printf_format
+	call printf
+	add esp,8
 
-	        pop ecx
-	        pop ebx
-	        mov eax, 0
-	        ret
+        mov esp,ebp
+        pop ebp
+	mov eax, 0
+	ret

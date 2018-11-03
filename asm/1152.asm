@@ -8,8 +8,6 @@ cnt:    dd 0
 buf:    times 1000000 db 0
         section .text
         global main
-        global loop
-        global end_of_loop
 main:
         push ebp
         mov ebp,esp
