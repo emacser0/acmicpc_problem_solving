@@ -1,0 +1,7 @@
+#include <cstdio>
+int n,m;
+int
+main() {
+  scanf("%d%d",&n,&m);
+  printf("%d\n",m-1+(n-1)*m);
+}
