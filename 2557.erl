@@ -2,4 +2,3 @@
 -export([main/1]).
 main([]) ->
     io:fwrite("Hello Wolrd!\n").
-
