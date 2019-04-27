@@ -1,4 +1,4 @@
-#include <stdio.h>
+  #include <stdio.h>
 int N,M,X,graph[1004][1004],a,b,c,r;
 int _min(int a, int b) {
   return a<b?a:b;
