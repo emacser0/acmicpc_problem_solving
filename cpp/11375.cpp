@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-int N,M,g[204][204],visited[204],m[204],s,x,cnt;
+int N,M,g[2004][2004],visited[2004],m[2004],s,x,cnt;
 int dfs(int x) {
   if(visited[x]) return 0;
   visited[x]=1;
@@ -22,8 +22,8 @@ int main() {
     }
   }
   for(int i=1;i<=N;i++) {
-    memset(visited,0,201*sizeof(int));
-    if(dfs(i)) cnt++;
+    memset(visited,0,2001*sizeof(int));
+    if(dfs(i))cnt++;
   }
   printf("%d\n",cnt);
 }
