@@ -8,6 +8,7 @@ fn ccw(a : (i32, i32), b : (i32, i32), c : (i32, i32)) -> i32
         _ => return 0,
     }
 }
+
 fn read_pair() -> (i32, i32)
 {
     let mut input = String::new();
@@ -16,6 +17,7 @@ fn read_pair() -> (i32, i32)
     let v : Vec<i32> = input.trim().split(" ").map(|x| x.parse::<i32>().unwrap()).collect();
     return (v[0], v[1]);
 }
+
 fn main()
 {
     let (p1, p2, p3) = (read_pair(), read_pair(), read_pair());
