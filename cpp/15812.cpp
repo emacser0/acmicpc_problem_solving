@@ -1,13 +1,16 @@
 #include <stdio.h>
 #include <math.h>
-int _max(int a, int b){
+#define For(x, s, e) for(int x = s; x < e; ++x)
+int Max(int a, int b)
+{
   return a>b?a:b;
 }
-int _min(int a, int b){
+int Min(int a, int b)
+{
   return a<b?a:b;
 }
 char map[50][50],ti[500],tj[500];
-int n,m,tl,mr,mmax,min=2e9;
+int n,m,tl,mr,max,min=2e9;
 int main() {
   scanf("%d%d",&n,&m);
   for(int i=0;i<n;i++) {
@@ -20,17 +23,17 @@ int main() {
       }
     }
   }
-  for(int i=0;i<n;i++) {
-    for(int j=0;j<m;j++) {
+  For(i,0,n) {
+    For(j,0,m) {
       int t=j+1;
-      for(int k=i;k<n;k++) {
-        for(int l=t;l<m;l++) {
-          mmax=0;
+      For(k,i,n) {
+        For(l,t,m) {
+          max=0;
           if(!map[i][j]&&!map[k][l]) {
-            for(int m=0;m<tl;m++) {
-              mmax=_max(mmax,_min(abs(ti[m]-i)+abs(tj[m]-j),abs(ti[m]-k)+abs(tj[m]-l)));
+            For(m,0,tl) {
+              max=Max(max,Min(abs(ti[m]-i)+abs(tj[m]-j),abs(ti[m]-k)+abs(tj[m]-l)));
             }
-            min=min<mmax?min:mmax;
+            min=min<max?min:max;
           }
         }
         t=0;

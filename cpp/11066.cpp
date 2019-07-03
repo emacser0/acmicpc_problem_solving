@@ -1,7 +1,5 @@
 #include <iostream>
-
-#define SSFOR(x, s, e) for(x = s; x < e; ++x)
-
+#define For(x, s, e) for(int x = s; x < e; ++x)
 template <typename T>
 T Max(T a, T b)
 {
@@ -14,34 +12,30 @@ T Min(T a, T b)
   return a < b ? a : b;
 }
 
-int K, N, arr[504], sum[504][504], dp[504][504];
-
+int K, N, arr[504], dp[504][504];
 int main()
 {
   std::cin >> K;
   int q;
-  SSFOR(q, 0, K)
+  For(q, 0, K)
   {
     std::cin >> N;
-    int e;
-    SSFOR(e, 0, N)
+    For(e, 0, N)
     {
       std::cin >> arr[e];
     }
-    int i, j;
-    SSFOR(i, 1, N)
+    For(i, 1, N)
     {
-      SSFOR(j, 0, N)
+      For(j, 0, N)
       {
         if(j + i < N)
         {
           dp[j][j + i] = 2e9;
-          int k;
-          SSFOR(k, j, j + i)
+          For(k, j, j + i)
           {
             dp[j][j + i] = Min(dp[j][j + i], dp[j][k] + dp[k + 1][j + i]);
           }
-          SSFOR(k, j, j + i + 1)
+          For(k, j, j + i + 1)
           {
             dp[j][j + i] += arr[k];
           }
