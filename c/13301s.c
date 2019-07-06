@@ -1,0 +1,1 @@
+long long n,a=2,b=2;main(){for(scanf("%d",&n);n>0;--n)b+=a,a=b-a;printf("%lld\n",b);} // I referred other people's for code golf. I recommend not to remove this comment when you submit this code to BOJ.

@@ -1,0 +1,1 @@
+n,q,c=1,s[7<<14],si,r[7<<15],ri,i;f(n){s[si++]=n,ri++;}b(){si--,r[ri++]=1;}main(){scanf("%d",&n);for(i=0;i<n;++i){scanf("%d",&q);while(c<=q)f(c++);if(s[si-1]!=q)break;b();}if(ri==n*2)for(i=0;i<ri;++i)printf("%c\n",r[i]?'-':'+');else printf("NO\n");}
