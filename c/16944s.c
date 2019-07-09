@@ -1,0 +1,1 @@
+N,l,u,n,s,i,j;char S[104],L[20]={'!','@','#','$','%','^','&','*','(',')','-','+'};main(){for(scanf("%d%s",&N,S);i<N;++i){l=islower(S[i])>0?1:l,u=isupper(S[i])>0?1:u,n=isdigit(S[i])>0?1:n;if(s)continue;for(j=0;j<12;++j)if((s=S[i]==L[j]))break;}printf("%d\n",(int)fmax(fmax(0,6-N),4-l-u-n-s));}
