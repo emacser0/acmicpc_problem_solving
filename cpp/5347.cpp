@@ -1,8 +1,10 @@
 #include <stdio.h>
 #define ll long long
-ll gcd(ll a,ll b) {
+ll gcd(ll a,ll b)
+{
   ll t;
-  while(b) {
+  while(b)
+  {
     t=a%b;
     a=b;
     b=t;
@@ -11,9 +13,11 @@ ll gcd(ll a,ll b) {
 }
 int n;
 ll a,b;
-int main() {
+int main()
+{
   scanf("%d",&n);
-  for(int i=0;i<n;i++) {
+  for(int i=0;i<n;i++)
+  {
     scanf("%d%d",&a,&b);
     printf("%lld\n",a*b/gcd(a>b?a:b,a>b?b:a));
   }

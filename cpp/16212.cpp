@@ -7,8 +7,7 @@ int cmp(const void *a,const void *b) {
   if(r1<r2) return -1;
   return 0;
 }
-int
-main() {
+int main() {
   scanf("%d",&n);
   for(int i=0;i<n;i++) {
     scanf("%d",a+i);

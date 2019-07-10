@@ -1,16 +1,19 @@
 #include <cstdio>
 int n,cnt,t;
 int
-main() {
+main()
+{
   scanf("%d",&n);
   t=n;
-  for(int i=1;i<=n&&t>0;i++) {    
-    if(t<i) {
+  for(int i=1;i<=n&&t>0;i++)
+  {
+    if(t<i)
+    {
       i=0;
       continue;
     }
     t-=i;
-    cnt++;    
+    cnt++;
   }
   printf("%d\n",cnt);
 }
