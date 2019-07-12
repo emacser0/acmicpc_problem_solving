@@ -1,0 +1,1 @@
+N,i,j,l,u,d,b;char s[34],L[]={43,95,41,40,42,38,94,37,36,35,64,33,46,47,44,59,123,125};main(T){for(scanf("%d",&T);l=u=d=b=0,T;--T,printf("%s\n",l&u&d&b&N>11?"valid":"invalid")){scanf("%d%s",&N,s);for(i=0;l=islower(s[i])?1:l,u=isupper(s[i])?1:u,d=isdigit(s[i])?1:d,i<N;++i)for(j=0;j<18;)b=s[i]==L[j++]?1:b;}}
