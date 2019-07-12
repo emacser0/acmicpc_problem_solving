@@ -14,7 +14,7 @@ int main()
       //        i, sum, floor(sqrt(2 * sum)));
       if(floor(sqrt(2*sum)) != i)
       {
-        printf("oh... no!!!\n");
+        printf("Nope\n");
         exit(1);
       }
     }
