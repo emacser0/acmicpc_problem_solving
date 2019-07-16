@@ -92,6 +92,21 @@ void Mul(BigInt *a, BigInt *b, BigInt *r)
   r->len += 1;
 }
 
+int Cmp(BigInt *a, BigInt *b)
+{
+  if(!a->sign && b->sign) return 1;
+  if(a->sign && !b->sign) return -1;
+  int mode = (!a->sign && !b->sign) ? 1 : -1;
+  if(a->len > b->len) return mode;
+  if(a->len < b->len) return -mode;
+  for(int i = a->len - 1; i >= 0; --i)
+    if(a->numarray[i] > b->numarray[i])
+      return mode;
+    else if(a->numarray[i] < b->numarray[i])
+      return -mode;
+  return 0;
+}
+
 void Print(BigInt *n)
 {
   if(n->sign && !(n->len == 1 && n->numarray[0] == 0)) std::cout << '-';
@@ -101,23 +116,15 @@ void Print(BigInt *n)
 }
 
 char s[10004];
-int A[10004], B[10004], R[20004];
+int A[10004], B[10004];
 int main()
 {
-  BigInt a, b, r;
+  BigInt a, b;
   std::cin >> s;
   a.numarray = A;
   Prepare(s, &a);
   std::cin >> s;
   b.numarray = B;
   Prepare(s, &b);
-  r.numarray = R, r.len = 20002;
-  Add(&a, &b, &r);
-  Print(&r);
-  r.len = 20002;
-  Sub(&a, &b, &r);
-  Print(&r);
-  r.len = 20002;
-  Mul(&a, &b, &r);
-  Print(&r);
+  std::cout << Cmp(&a, &b) << "\n";
 }
