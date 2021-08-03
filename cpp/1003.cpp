@@ -1,23 +1,26 @@
 #include <cstdio>
-int t,input,m[99][2],size=1;
-void fib(int n) {
-  if(n>size) {
-    fib(n-1),fib(n-2);
-    m[n][0]=m[n-1][0]+m[n-2][0];
-    m[n][1]=m[n-1][1]+m[n-2][1];
-  }
-}
-int
-main() {
-  m[0][0]=1;
-  m[1][1]=1;
-  scanf("%d",&t);
-  for(int i=0;i<t;i++) {
-    scanf("%d",&input);
-    if(input>size) {
-      fib(input);
-      size=input;
+int fib[40][2];
+
+int main()
+{
+
+    fib[0][0] = 1;
+    fib[1][1] = 1;
+
+    int T;
+    scanf("%d", &T);
+
+    for(int i = 0; i < T; ++i)
+    {
+        int n;
+        scanf("%d", &n);
+
+        for(int i = 2; i <= 40; ++i)
+        {
+            fib[i][0] = fib[i-1][0] + fib[i-2][0];
+            fib[i][1] = fib[i-1][1] + fib[i-2][1];
+        }
+
+        printf("%d %d\n", fib[n][0], fib[n][1]);
     }
-    printf("%d %d\n",m[input][0],m[input][1]);
-  }
 }
