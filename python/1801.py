@@ -1,70 +1,49 @@
 n = int(input())
 l = list(map(int, input().split(" ")))
 l.sort()
-ll = len(l)
-m = l[0] + l[1] + l[2] + l[3]
-s = sum(l)
-max_area = 0
 
-def check(p, visited=0, t=0, i=0, s=0):
-    if s == t:
-        p.append(visited)
+m = sum(l[0:4])
+s = sum(l) + 1
+marea = 0
+
+dp = [set() for _ in range(s)]
+
+def calc(v=0, i=0, s=0):
+    dp[s].add(v)
+    if i == len(l):
         return
-    if s > t or i == ll:
-        return
-    if visited & (1 << i) == 0:
-        visited |= 1 << i
-        a = check(p, visited, t, i + 1, s + l[i])
-        visited -= 1 << i
-    check(p, visited, t, i + 1, s)
+    calc(v | 1 << i, i + 1, s + l[i])
+    calc(v, i + 1, s)
 
-def compare(a, b):
-    while a > 0 and b > 0:
-        if a % 2 == b % 2 == 1:
-            return False
-        a >>= 1
-        b >>= 1
-    return True
+calc()
 
-for w in range(1, 100):
-    for h in range(1, 100):
+dp = list(map(list, dp))
+ddp = [set() for _ in range(s)]
+
+for i in range(l[0], s // 2):
+    for j in range(len(dp[i])):
+        for k in range(j + 1, len(dp[i])):
+            if dp[i][j] & dp[i][k] == 0:
+                ddp[i].add(dp[i][j] | dp[i][k])
+
+ddp = list(map(list, ddp))
+
+marea = 0
+
+def check(w, h):
+    for i in range(len(ddp[w])):
+        for j in range(len(ddp[h])):
+            if ddp[w][i] & ddp[h][j] == 0:
+                return True
+    return False
+
+for w in range(1, s):
+    for h in range(w, s):
         v = w * 2 + h * 2
-        if v < m or v > s:
-            continue
-        if w * 4 > s or h * 4 > s:
-            continue
-        if w < l[0] or h < l[0]:
-            continue
-        if w * h <= max_area:
+        if v < m or v > s or w < l[0] or h < l[0] or w * h <= marea:
             continue
 
-        wp, hp = [], []
+        if check(w, h):
+            marea = max(marea, w * h)
 
-        check(wp, 0, w)
-        check(hp, 0, h)
-
-        wwp, hhp = [], []
-
-        wpl = len(wp)
-        hpl = len(hp)
-        for i in range(wpl):
-            for j in range(wpl):
-                if compare(wp[i], wp[j]):
-                    wwp.append(wp[i] | wp[j])
-
-        for i in range(hpl):
-            for j in range(hpl):
-                if compare(hp[i], hp[j]):
-                    hhp.append(hp[i] | hp[j])
-
-        wp, hp = [], []
-        exists = False
-        for i in range(len(wwp)):
-            for j in range(len(hhp)):
-                if compare(wwp[i], hhp[j]):
-                    exists = True
-                    break
-        if exists:
-            max_area = max(max_area, w * h)
-
-print(max_area)
+print(marea if marea else -1)
