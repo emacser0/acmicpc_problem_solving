@@ -1,0 +1,1 @@
+print(bin(int(input(), base=2) * 17).split('b')[1])
