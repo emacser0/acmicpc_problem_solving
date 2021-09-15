@@ -1,13 +1,18 @@
+import heapq
+
 n = int(input())
 l = []
 for i in range(n):
-    l.append(int(input()))
-l.sort()
+    heapq.heappush(l, int(input()))
+
 s = 0
 
-for i in range(1, n):
-    l[i] = l[i] + l[i - 1]
-    s += l[i]
-    l.sort()
+while len(l) > 1:
+    a = heapq.heappop(l)
+    b = heapq.heappop(l)
+
+    s += a + b
+
+    heapq.heappush(l, a + b)
 
 print(s)
