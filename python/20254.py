@@ -1,0 +1,1 @@
+print(sum([a * b for a, b in zip([56, 24, 14, 6], map(int,input().split(" ")))]))
