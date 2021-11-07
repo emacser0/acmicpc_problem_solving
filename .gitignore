@@ -8,3 +8,7 @@
 *.fls
 *.log
 *.gz
+
+**/ipch/
+**/Debug/
+**/Release/
