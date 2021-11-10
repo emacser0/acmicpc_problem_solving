@@ -19,7 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0006.cpp" />
+    <ClCompile Include="contestA.cpp" />
+    <ClCompile Include="contestB.cpp" />
+    <ClCompile Include="contestC.cpp" />
+    <ClCompile Include="contestD.cpp" />
+    <ClCompile Include="contestE.cpp" />
+    <ClCompile Include="contestF.cpp" />
+    <ClCompile Include="contestG.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
