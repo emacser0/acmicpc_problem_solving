@@ -9,6 +9,13 @@
 *.log
 *.gz
 
+**/.vs/
+**/v16/
 **/ipch/
 **/Debug/
 **/Release/
+*.sln
+*.sqlite
+*.json
+*.pyproj
+*.
