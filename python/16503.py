@@ -1,0 +1,1 @@
+print(*eval("sorted([int(int({0}{1}{2}){3}{4}), int({0}{1}int({2}{3}{4}))])".format(*input().split())),sep="\n")
